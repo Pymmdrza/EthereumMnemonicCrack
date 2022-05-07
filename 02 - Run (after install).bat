@@ -1,6 +1,6 @@
 @Echo off
-title MneEthOn.py Mmdrza.Com
+title MneEthOn_V2.py Mmdrza.Com
 Pushd "%~dp0"
 :loop
-python MneEthOn.py
+python MneEthOn_V2.py
 goto loop
