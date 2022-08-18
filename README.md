@@ -51,6 +51,6 @@ for used and download Pro Version this software follow this [link](https://mmdrz
 -------------------------------------------
 # Telegram id : @PyMmdrza
 -------------------------------------------
-# Telegram CHannel : t.me/mPython3
+# Telegram CHannel : t.me/CryptoAttacker
 # =========================================
 ```
