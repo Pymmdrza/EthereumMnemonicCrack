@@ -19,6 +19,8 @@ pip install hdwallet
 pip install lxml
 pip install rich
 pip install mnemonic
+pip install requests-html
+
 ```
 
 Easy Install File From Windows : `INSTALL.bat` For Linux Can Use `run.sh` with this common : `sh run.sh`
@@ -54,7 +56,7 @@ Programmer Telegram Channel [@Cryptoixer](https://t.me/Cryptoixer)
 -------------------------------------------
 # Dev.To/Mmdrza
 -------------------------------------------
-# Telegram id : @PyMmdrza
+# Telegram id : @MrPyMmdrza
 -------------------------------------------
 # Telegram CHannel : t.me/Cryptoixer
 # =========================================
