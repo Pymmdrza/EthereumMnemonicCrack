@@ -25,6 +25,13 @@ pip install requests-html
 
 Easy Install File From Windows : `INSTALL.bat` For Linux Can Use `run.sh` with this common : `sh run.sh`
 
+
+### `MneEthOn_v3.py` Screen:
+
+
+[![asciicast](https://asciinema.org/a/549511.svg)](https://asciinema.org/a/549511)
+
+
 ---
 ## Mnemonic Ethereum Generated and Check Offline from file :
 
