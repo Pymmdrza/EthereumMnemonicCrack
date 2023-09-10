@@ -6,7 +6,6 @@ from hdwallet import HDWallet
 from hdwallet import BIP44HDWallet
 from hdwallet.cryptocurrencies import EthereumMainnet as Cryptocurrency
 from hdwallet.utils import is_mnemonic
-from lxml import html
 from mnemonic import Mnemonic
 from multiprocessing import Process
 import requests
@@ -40,15 +39,11 @@ def mmdrza() :
         addr = bip44_hdwallet.p2pkh_address()
         priv = bip44_hdwallet.private_key()
         # =======================================
-        urlblock = "https://ethereum.atomicwallet.io/address/"+addr
+        urlblock = f"https://ethereum.atomicwallet.io/api/v2/address/{addr}"
         respone_block = requests.get(urlblock)
-        byte_string = respone_block.content
-        source_code = html.fromstring(byte_string)
-        xpatch_txid = '/html/body/main/div/div[2]/div[1]/table/tbody/tr[2]/td[2]'
-        treetxid = source_code.xpath(xpatch_txid)
-        xVol = str(treetxid[0].text_content())
-        elapsed = respone_block.elapsed
-        timer = elapsed
+        res = respone_block.json()
+        xVol = dict(res)['balance']
+        timer = respone_block.elapsed
         bal = xVol
 
         # =======================================
