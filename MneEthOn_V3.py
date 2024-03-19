@@ -1,82 +1,111 @@
 import random
-from rich import print
+import time
+
+import requests
+from blessed import Terminal
+import psutil
 from rich.panel import Panel
 from rich.console import Console
-from hdwallet import HDWallet
-from hdwallet import BIP44HDWallet
-from hdwallet.cryptocurrencies import EthereumMainnet as Cryptocurrency
-from hdwallet.utils import is_mnemonic
+from rich.style import Style
+from cryptofuzz import Convertor, Ethereum
 from mnemonic import Mnemonic
-from multiprocessing import Process
-from requests_html import HTMLSession
-import base64
+import os
+import sys
 
+conv = Convertor()
+eth = Ethereum()
 console = Console()
 
-e = "ZnJvbSBmYWtlX3VzZXJhZ2VudCBpbXBvcnQgVXNlckFnZW50CmltcG9ydCBiYXNlNjQKaW1wb3J0IHJhbmRvbQoKCmNvbnNvbGUgPSBDb25zb2xlKCkKZGVmIGdldFVzZXJBZ2VudCgpOgogICAgdWEgPSBVc2VyQWdlbnQoKQogICAgcmV0dXJuIHVhLnJhbmRvbQoKCmRlZiBiYWxhbmNlKGFkZHIpOgogICAgdXJsX24gPSBmImh0dHBzOi8vZXRoZXJldW0uYXRvbWljd2FsbGV0LmlvL2FkZHJlc3Mve2FkZHJ9IgogICAgc2UgPSBIVE1MU2Vzc2lvbigpCiAgICBoZWFkZXJzID0geyJVc2VyLUFnZW50IjogZ2V0VXNlckFnZW50KCl9CiAgICBubXAgPSBzZS5nZXQodXJsX24sIGhlYWRlcnM9aGVhZGVycykKICAgIE1hc3RlciA9IG5tcC5odG1sLnhwYXRoKCcvaHRtbC9ib2R5L21haW4vZGl2L3RhYmxlL3Rib2R5L3RyWzJdL3RkWzJdL3NwYW4vc3BhblsxXScpCiAgICByZXR1cm4gTWFzdGVyWzBdLnRleHQKCgpkZWYgdHJhbnNhY3Rpb24oYWRkcik6CiAgICB1cmxfbiA9IGYiaHR0cHM6Ly9ldGhlcmV1bS5hdG9taWN3YWxsZXQuaW8vYWRkcmVzcy97YWRkcn0iCiAgICBzZSA9IEhUTUxTZXNzaW9uKCkKICAgIGhlYWRlcnMgPSB7IlVzZXItQWdlbnQiOiBnZXRVc2VyQWdlbnQoKX0KICAgIG5tcCA9IHNlLmdldCh1cmxfbiwgaGVhZGVycz1oZWFkZXJzKQogICAgTWFzdGVyID0gbm1wLmh0bWwueHBhdGgoJy9odG1sL2JvZHkvbWFpbi9kaXYvdGFibGUvdGJvZHkvdHJbM10vdGRbMl0nKQogICAgcmV0dXJuIE1hc3RlclswXS50ZXh0Cg=="
 
-exec(base64.b64decode(e).decode())
-
-
-def mmdrza():
-    z = 1
-    w = 0
-    while True:
-        z += 1
-
-        langrnd = ['english']
-        sellan = random.choice(langrnd)
-        mne = Mnemonic(str(sellan))
-        listno = ["128", "256"]
-        rnd = random.choice(listno)
-        words = mne.generate(strength=int(rnd))
-        STRENGTH = int(rnd)
-        LANGUAGE: str = (sellan)
-        MNEMONIC = words
-        PASSPHRASE: str = None
-        assert is_mnemonic(mnemonic=words, language=sellan)
-
-        bip44_hdwallet: BIP44HDWallet = BIP44HDWallet(cryptocurrency=Cryptocurrency, account=0, change=False,
-                                                      address=0)
-        bip44_hdwallet.from_mnemonic(mnemonic=MNEMONIC, passphrase=PASSPHRASE, language=LANGUAGE)
-        mixword = words[:32]
-        addr = bip44_hdwallet.p2pkh_address()
-        # addr ='0xfc43f5f9dd45258b3aff31bdbe6561d97e8b71de'
-        priv = bip44_hdwallet.private_key()
-        # =======================================
-
-        # =======================================
-        MmdrzaPanel = str(
-            '[gold1 on grey15]Total Checked: ' + '[orange_red1]' + str(
-                z) + '[/][gold1 on grey15] ' + ' Win:' + '[white]' + str(
-                w) + '[/]' + '[grey74]  ReqSpeed: ' + '[/][gold1]             Balance: ' + '[/][aquamarine1]' + str(
-                balance(addr)) + '[/][gold1]             Transaction : ' + '[/][aquamarine1]' + str(
-                transaction(addr)) + '\n[/][gold1 on grey15]Addr: ' + '[white] ' + str(
-                addr) + '[/]\nPRIVATEKEY: [grey54]' + str(priv) + '[/]')
-        style = "gold1 on grey11"
-        console.print(Panel(str(MmdrzaPanel), title="[white]Ethereum Mnemonic Checker V3[/]",
-                            subtitle="[green_yellow blink] Mmdrza.Com [/]", style="green"), style=style, justify="full")
-
-        z += 1
-        iffer = '0 ETH'
-        if balance(addr) != iffer:
-            w += 1
-            f1 = open('Winner___ETH___WalletWinner.txt', 'a')
-            f1.write(f'\nAddress     === {addr}')
-            f1.write(f'\nPrivateKey  === {priv}')
-            f1.write(f'\nMnemonic    === {words}')
-            f1.write(f'\nBalance === {balance(addr)}')
-            f1.write(f'\nTransaction === {transaction(addr)}')
-            f1.write(f'\n            -------[ M M D R Z A . C o M ]------                   \n')
-            f1.close()
-
-    # ============================
+def OnClear():
+    if "win" in sys.platform.lower():
+        os.system("cls")
+    else:
+        os.system("clear")
 
 
-mmdrza()
+def balance(addr):
+    url_n = f"https://ethereum.atomicwallet.io/api/v2/address/{addr}"
+    req = requests.get(url_n)
+    if req.status_code == 200:
+        return dict(req.json())["balance"]
+    else:
+        return "0"
 
-if __name__ == '__main__':
-    for i in range(len(add)):
-        p = multiprocessing.Process(target=mmdrza)
-        p.start()
-        p.join()
+
+def transaction(addr):
+    req = requests.get(f"https://ethereum.atomicwallet.io/api/v2/address/{addr}")
+    if req.status_code == 200:
+        return int(dict(req.json())["txs"])
+    else:
+        return 0
+
+
+def draw_system_status(term):
+    cpu_percent = psutil.cpu_percent()
+    ram_percent = psutil.virtual_memory().percent
+    disk_percent = psutil.disk_usage('/').percent
+    termWidth = term.width
+    system_status = (
+        f'\n{draw_graph("CPU", cpu_percent, termWidth)}\n'
+        f'\n{draw_graph("RAM", ram_percent, termWidth)}\n'
+        f'\n{draw_graph("HDD", disk_percent, termWidth)}\n'
+    )
+    return system_status
+
+
+def draw_ethereum_info(z, w, addr, priv, mixWord, txs):
+    MmdrzaPanel = (
+        f'\n[gold1]Total Checked: [orange_red1]{z}[/][gold1]  Win: [white]{w}[/]'
+        f'[gold1]  Transaction: [/][aquamarine1]{txs}\n\n[/][gold1]ADDR: [white] {addr}[/white]\n\n'
+        f'PRIVATE: [grey54]{priv}[/grey54]\n\nMNEMONIC: [white]{mixWord}[/white]\n'
+    )
+    return MmdrzaPanel
+
+
+def draw_graph(title, percent, width):
+    bar_length = int(width - 17)
+    num_blocks = int(percent * bar_length / 100)
+    dash = "[grey54]–[/]"
+    barFill = "[green]▬[/]"
+    bar = barFill * num_blocks + dash * (bar_length - num_blocks)
+    return f"[white]{title}[/]: |{bar}| {percent}%"
+
+
+def main():
+    term = Terminal()
+    with term.fullscreen():
+        with term.cbreak(), term.hidden_cursor():
+            OnClear()
+            while True:
+                z = 0
+                w = 0
+                while True:
+                    system_status = draw_system_status(term)
+                    draw_system_status_panel = Panel(system_status, border_style="grey66")
+                    mne = Mnemonic("english")
+                    NumberList = [128, 256]
+                    randomSize = random.choice(NumberList)
+                    words = mne.generate(strength=randomSize)
+                    priv = conv.mne_to_hex(words)
+                    addr = eth.hex_addr(priv)
+                    mixWord = words[:64]
+                    txs = transaction(addr)
+                    if txs > 0:
+                        w += 1
+                        with open("Found.txt", "a") as fr:
+                            fr.write(f"{addr} TXS: {txs} BAL: {balance(addr)}\n")
+                            fr.write(f"{priv}\n")
+                            fr.write(f"{words}\n")
+                            fr.write(f"{'-' * 50}\n")
+                    MmdrzaPanel = draw_ethereum_info(z, w, addr, priv, mixWord, txs)
+                    with term.location(0, 1):
+                        console.print(draw_system_status_panel, justify="full", soft_wrap=True)
+                        console.print(Panel(MmdrzaPanel, title="[white]Ethereum Mnemonic Checker V3[/]",
+                                            subtitle="[green_yellow blink] Mmdrza.Com [/]", style="green"),
+                                      justify="full", soft_wrap=True)
+                    z += 1
+
+
+if __name__ == "__main__":
+    main()
