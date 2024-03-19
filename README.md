@@ -104,9 +104,7 @@ Programmer Telegram Channel [@Cryptoixer](https://t.me/Cryptoixer)
 -------------------------------------------
 # Github: PyMmdrza.GitHub.io
 -------------------------------------------
-# Dev.To/Mmdrza
--------------------------------------------
-# Telegram id : @MrPyMmdrza
+# Telegram id : @Mr1Mmdrza
 -------------------------------------------
 # Telegram CHannel : t.me/Cryptoixer
 # =========================================
