@@ -92,7 +92,7 @@ For Download Database File Can Use This File : [10,000 ETH ADDRESS.txt](https://
 for used and download Pro Version this software follow this [link](https://mmdrza.com)
 
 
-Programmer Telegram ID [@MrPyMmdrza](https://t.me/MrPyMmdrza)
+Programmer Telegram ID [@Mr1Mmdrza](https://t.me/Mr1Mmdrza)
 
 Programmer Telegram Channel [@Cryptoixer](https://t.me/Cryptoixer)
 
