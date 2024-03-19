@@ -26,6 +26,8 @@ Ethereum Address Wallet Generated With Private Key From Mnemonic and check Value
 - Changing the display mode in announcing the results of each process.
 - Using the powerful Concurrent library to parallelize and optimize the process speed
 
+[![asciicast](https://asciinema.org/a/647692.svg)](https://asciinema.org/a/647692)
+
 ---
 
 Windows : 
@@ -95,7 +97,7 @@ Programmer Telegram ID [@MrPyMmdrza](https://t.me/MrPyMmdrza)
 Programmer Telegram Channel [@Cryptoixer](https://t.me/Cryptoixer)
 
 > **Warning**
-> Unfortunately, due to the ignorance of some dear users, we were not informed that some profiteers and uncultured people are selling some of my scripts at a lower price. And the user does not receive anything after payment. Some of these ignorant people give malicious and viral files to users. From here, I declare that the only official source for selling my scripts is the [website](https://mmdrza.com) and [Telegram ID](https://t.me/MrPyMmdrza) or [Telegram Channel](https://t.me/Cryptoixer).
+> Unfortunately, due to the ignorance of some dear users, we were not informed that some profiteers and uncultured people are selling some of my scripts at a lower price. And the user does not receive anything after payment. Some of these ignorant people give malicious and viral files to users. From here, I declare that the only official source for selling my scripts is the [website](https://mmdrza.com) and [Telegram ID](https://t.me/Mr1Mmdrza) or [Telegram Channel](https://t.me/Cryptoixer).
 
 ---
 ```
