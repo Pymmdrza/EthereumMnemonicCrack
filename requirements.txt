@@ -2,5 +2,5 @@ blessed==1.20.0
 CryptoFuzz==3.9.6
 mnemonic==0.21
 psutil==5.9.8
-requests==2.31.0
+requests==2.32.0
 rich==13.7.1
