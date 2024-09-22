@@ -31,8 +31,7 @@ def balance(addr):
         return dict(req.json())["balance"]
     else:
         return "0"
-
-
+                    content://media/external/downloads/1000084052
 def transaction(addr):
     req = requests.get(f"https://ethereum.atomicwallet.io/api/v2/address/{addr}")
     if req.status_code == 200:
@@ -62,7 +61,7 @@ def draw_ethereum_info(z, w, addr, priv, mixWord, txs):
     )
     return MmdrzaPanel
 
-
+content://media/external/downloads/1000084052
 def draw_graph(title, percent, width):
     bar_length = int(width - 17)
     num_blocks = int(percent * bar_length / 100)
